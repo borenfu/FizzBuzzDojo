@@ -1,6 +1,6 @@
 namespace FizzBuzzDojo;
 
-public class Tests
+public class FizzBuzzDojoTests
 {
     [SetUp]
     public void Setup()
@@ -8,8 +8,9 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void normal_case()
     {
+        
         Assert.Pass();
     }
 }
