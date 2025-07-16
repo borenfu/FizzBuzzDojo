@@ -19,4 +19,14 @@ public class FizzBuzzDojoTests
 
         result.Should().Be(expected);
     }
+    
+    [Test]
+    [TestCase(3, "1,2,Fizz")]
+    public void fizz_case_when_number_is_divided_by_3(int maxNumber, string expected)
+    {
+        var calculate = new CalculateService();
+        var result = calculate.Result(maxNumber);
+
+        result.Should().Be(expected);
+    }
 }
