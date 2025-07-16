@@ -42,7 +42,7 @@ public class FizzBuzzDojoTests
     }
 
     [Test]
-    [TestCase(1, 15, "1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz")]
+    [TestCase(1, 15, "1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,Fizz,14,FizzBuzz")]
     public void fizzbuzz_case_when_number_is_divided_by_3_and_5(int startNumber, int endNumber, string expected)
     {
         var result = _calculate.Result(startNumber, endNumber);

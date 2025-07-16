@@ -4,29 +4,27 @@ public class FizzBuzzModel(int number)
 {
     private bool IsDividedBy3 => number % 3 == 0;
     private bool IsDividedBy5 => number % 5 == 0;
+    private bool IsContain3 => number.ToString().Contains('3');
 
     public string GetValue()
     {
-        if (number == 1)
+        var value = string.Empty;
+        
+        if (IsDividedBy3 || IsContain3)
         {
-            return number.ToString();
-        }
-
-        if (IsDividedBy5 && IsDividedBy3)
-        {
-            return ",FizzBuzz";
-        }
-
-        if (IsDividedBy3)
-        {
-            return ",Fizz";
+            value += "Fizz";
         }
 
         if (IsDividedBy5)
         {
-            return ",Buzz";
+            value += "Buzz";
         }
 
-        return "," + number;
+        if (value == string.Empty)
+        {
+            return "," + number;
+        }
+
+        return "," + value;
     }
 }
