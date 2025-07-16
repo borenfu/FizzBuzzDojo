@@ -11,12 +11,22 @@ public class FizzBuzzModel(int number)
     {
         var value = string.Empty;
 
-        if (IsDividedBy3 || IsContain3)
+        if (IsDividedBy3)
         {
             value += "Fizz";
         }
 
-        if (IsDividedBy5 || IsContain5)
+        if (IsContain3)
+        {
+            value += "Fizz";
+        }
+
+        if (IsDividedBy5)
+        {
+            value += "Buzz";
+        }
+
+        if (IsContain5)
         {
             value += "Buzz";
         }
