@@ -12,9 +12,11 @@ public class CalculateService
         {
             var fizzBuzzModel = new FizzBuzzModel(i);
             var value = fizzBuzzModel.GetValue();
+
             result.Append(value);
         }
 
+        result.Replace(",", string.Empty, 0, 1);
         return result.ToString();
     }
 }
