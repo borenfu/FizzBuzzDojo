@@ -17,6 +17,10 @@ public class CalculateService
             if (j % 3 == 0)
             {
                 result.Append("Fizz");
+            }  
+            else if (j % 5 == 0)
+            {
+                result.Append("Buzz");
             }
             else
             {

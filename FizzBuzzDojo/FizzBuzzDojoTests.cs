@@ -30,7 +30,7 @@ public class FizzBuzzDojoTests
 
         result.Should().Be(expected);
     }
-    
+
     [Test]
     [TestCase(5, "1,2,Fizz,4,Buzz")]
     public void buzz_case_when_number_is_divided_by_5(int maxNumber, string expected)
@@ -40,5 +40,4 @@ public class FizzBuzzDojoTests
 
         result.Should().Be(expected);
     }
-    
 }
