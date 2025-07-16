@@ -49,13 +49,22 @@ public class FizzBuzzDojoTests
 
         result.Should().Be(expected);
     }
-    
+
     [Test]
     [TestCase(10, 13, "Buzz,11,Fizz,Fizz")]
     public void fizz_case_when_number_contains_3(int startNumber, int endNumber, string expected)
     {
         var result = _calculate.Result(startNumber, endNumber);
-    
+
+        result.Should().Be(expected);
+    }
+
+    [Test]
+    [TestCase(50, 55, "Buzz,FizzBuzz,Buzz,FizzBuzz,FizzBuzz,Buzz")]
+    public void fizz_case_when_number_contains_5(int startNumber, int endNumber, string expected)
+    {
+        var result = _calculate.Result(startNumber, endNumber);
+
         result.Should().Be(expected);
     }
 }
