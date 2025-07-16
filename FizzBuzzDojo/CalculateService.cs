@@ -14,10 +14,14 @@ public class CalculateService
                 result.Append(',');
             }
 
-            if (j % 3 == 0)
+            if (j % 5 == 0 && j % 3 == 0)
+            {
+                result.Append("FizzBuzz");
+            }
+            else if (j % 3 == 0)
             {
                 result.Append("Fizz");
-            }  
+            }
             else if (j % 5 == 0)
             {
                 result.Append("Buzz");
