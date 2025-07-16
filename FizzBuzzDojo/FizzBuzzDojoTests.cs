@@ -60,8 +60,17 @@ public class FizzBuzzDojoTests
     }
 
     [Test]
-    [TestCase(50, 55, "Buzz,FizzBuzz,Buzz,FizzBuzz,FizzBuzz,Buzz")]
+    [TestCase(50, 52, "Buzz,FizzBuzz,Buzz")]
     public void fizz_case_when_number_contains_5(int startNumber, int endNumber, string expected)
+    {
+        var result = _calculate.Result(startNumber, endNumber);
+
+        result.Should().Be(expected);
+    }
+
+    [Test]
+    [TestCase(53, 55, "FizzBuzz,FizzBuzz,Buzz")]
+    public void fizz_case_when_number_contains_3_and_5(int startNumber, int endNumber, string expected)
     {
         var result = _calculate.Result(startNumber, endNumber);
 
