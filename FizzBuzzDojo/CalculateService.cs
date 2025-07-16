@@ -4,32 +4,15 @@ namespace FizzBuzzDojo;
 
 public class CalculateService
 {
-    public string Result(int i)
+    public string Result(int startNumber, int endNumber)
     {
         var result = new StringBuilder();
-        for (var j = 1; j <= i; j++)
-        {
-            if (j > 1)
-            {
-                result.Append(',');
-            }
 
-            if (j % 5 == 0 && j % 3 == 0)
-            {
-                result.Append("FizzBuzz");
-            }
-            else if (j % 3 == 0)
-            {
-                result.Append("Fizz");
-            }
-            else if (j % 5 == 0)
-            {
-                result.Append("Buzz");
-            }
-            else
-            {
-                result.Append(j);
-            }
+        for (var i = startNumber; i <= endNumber; i++)
+        {
+            var fizzBuzzModel = new FizzBuzzModel(i);
+            var value = fizzBuzzModel.GetValue();
+            result.Append(value);
         }
 
         return result.ToString();
