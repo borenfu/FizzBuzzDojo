@@ -76,4 +76,32 @@ public class FizzBuzzDojoTests
 
         result.Should().Be(expected);
     }
+
+    [Test]
+    [TestCase(45, 45, "FizzBuzz")]
+    public void fizz_case_when_number_divide_3_and_contains_5(int startNumber, int endNumber, string expected)
+    {
+        var result = _calculate.Result(startNumber, endNumber);
+
+        result.Should().Be(expected);
+    }
+
+    [Test]
+    [TestCase(30, 30, "FizzBuzz")]
+    public void fizz_case_when_number_divide_5_and_contains_3(int startNumber, int endNumber, string expected)
+    {
+        var result = _calculate.Result(startNumber, endNumber);
+
+        result.Should().Be(expected);
+    }
+
+    // [Test]
+    // [TestCase(34, 35, "Fizz,FizzBuzzBuzz")]
+    // public void fizzBuzzBuzz_case_when_number_divided_5_and_contains_3_and_5(int startNumber, int endNumber,
+    //     string expected)
+    // {
+    //     var result = _calculate.Result(startNumber, endNumber);
+    //
+    //     result.Should().Be(expected);
+    // }
 }
