@@ -22,6 +22,7 @@ public class FizzBuzzDojoTests
     
     [Test]
     [TestCase(3, "1,2,Fizz")]
+    [TestCase(4, "1,2,Fizz,4")]
     public void fizz_case_when_number_is_divided_by_3(int maxNumber, string expected)
     {
         var calculate = new CalculateService();

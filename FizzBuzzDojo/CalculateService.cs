@@ -14,7 +14,14 @@ public class CalculateService
                 result.Append(',');
             }
 
-            result.Append(j);
+            if (j % 3 == 0)
+            {
+                result.Append("Fizz");
+            }
+            else
+            {
+                result.Append(j);
+            }
         }
 
         return result.ToString();
