@@ -1,4 +1,4 @@
-﻿namespace BankAccountKata;
+namespace BankAccountKata;
 
 public class Transaction
 {

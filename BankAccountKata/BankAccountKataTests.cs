@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 
 namespace BankAccountKata;
 
@@ -72,5 +72,36 @@ public class BankAccountKataTests
         transactions[0].Type.Should().Be(TransactionType.Deposit);
         transactions[1].Amount.Should().Be(50);
         transactions[1].Type.Should().Be(TransactionType.Withdrawal);
+    }
+    //
+    // Date       | Amount | Balance
+    // 14/01/2012 | -500   | 2500
+    // 13/01/2012 | 2000   | 3000
+    // 10/01/2012 | 1000   | 1000
+    [Test]
+    public void print_statement()
+    {
+        _bankAccountModel.Deposit(100);
+        _bankAccountModel.Withdraw(50);
+        _bankAccountModel.Deposit(250);
+        _bankAccountModel.Withdraw(110);
+        var statement = _bankAccountModel.GetStatement();
+        var splits = statement.Split('\n');
+        splits.Should().HaveCount(6);
+        
+        StatementShouldBe(splits[4], 100, 100);
+        StatementShouldBe(splits[3], 50, 50);
+        StatementShouldBe(splits[2], 250, 300);
+        StatementShouldBe(splits[1], 110, 190);
+
+    }
+
+    private static void StatementShouldBe(string line, decimal amount, decimal balance)
+    {
+        var details = line.Split('|');
+        details.Should().HaveCount(3);
+        DateTime.Parse(details[0]).Should().Be(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+        decimal.Parse(details[1].Trim()).Should().Be(amount);
+        decimal.Parse(details[2].Trim()).Should().Be(balance);
     }
 }

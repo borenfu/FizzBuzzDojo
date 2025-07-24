@@ -1,4 +1,6 @@
-﻿namespace BankAccountKata;
+using System.Text;
+
+namespace BankAccountKata;
 
 public class BankAccountModel
 {
@@ -44,5 +46,23 @@ public class BankAccountModel
     public List<Transaction> GetTransactions()
     {
         return _transactions;
+    }
+
+    public string GetStatement()
+    {
+        var transactions = GetTransactions();
+        transactions.Reverse();
+        
+        var statement = new StringBuilder();
+        statement.AppendLine("Date       | Amount | Balance");
+        
+        foreach (var transaction in transactions)
+        {
+            statement.AppendLine(transaction.Timestamp.ToString("yyyy/MM/dd") + " | "
+                + transaction.Amount.ToString() + " | " 
+                + transaction.Balance.ToString());
+        }
+        
+        return statement.ToString();
     }
 }
