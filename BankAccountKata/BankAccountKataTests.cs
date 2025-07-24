@@ -10,10 +10,19 @@ public class BankAccountKataTests
     }
 
     [Test]
-    public void deposit_case_when_account_is_created_balance_0()
+    public void create_account_and_balance_is_0()
     {
         var bankAccountModel = new BankAccountModel();
-        bankAccountModel.StartAccount();
-        bankAccountModel.balance.Should().Be(0);
+        bankAccountModel.CreateAccount();
+        bankAccountModel.GetBalance().Should().Be(0);
+    }
+    
+    [Test]
+    public void deposit_100_balance_100()
+    {
+        var bankAccountModel = new BankAccountModel();
+        bankAccountModel.CreateAccount();
+        bankAccountModel.Deposit(100);
+        bankAccountModel.GetBalance().Should().Be(100);
     }
 }
