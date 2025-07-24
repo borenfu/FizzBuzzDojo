@@ -2,6 +2,7 @@
 
 public class BankAccountModel
 {
+    private readonly List<Transaction> _transactions = [];
     private decimal Balance { get; set; }
 
     public void CreateAccount()
@@ -22,6 +23,9 @@ public class BankAccountModel
         }
 
         Balance += amount;
+
+        var transaction = new Transaction(DateTime.Now, amount, Balance, TransactionType.Deposit);
+        _transactions.Add(transaction);
     }
 
     public void Withdraw(decimal amount)
@@ -32,10 +36,13 @@ public class BankAccountModel
         }
 
         Balance -= amount;
+
+        var transaction = new Transaction(DateTime.Now, amount, Balance, TransactionType.Withdrawal);
+        _transactions.Add(transaction);
     }
 
     public List<Transaction> GetTransactions()
     {
-        throw new NotImplementedException();
+        return _transactions;
     }
 }

@@ -2,11 +2,12 @@
 
 public class Transaction
 {
-    public Transaction(DateTime timestamp, decimal amount, TransactionType type)
+    public Transaction(DateTime timestamp, decimal amount, decimal balance, TransactionType type)
     {
         Timestamp = timestamp;
         Amount = amount;
         Type = type;
+        Balance = balance;
     }
 
     public DateTime Timestamp { get; set; }
