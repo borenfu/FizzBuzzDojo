@@ -40,4 +40,13 @@ public class BankAccountKataTests
         _bankAccountModel.Withdraw(50);
         _bankAccountModel.GetBalance().Should().Be(0);
     }
+
+    [Test]
+    public void withdraw_not_enough_balance_throw_exception()
+    {
+        _bankAccountModel.Deposit(50);
+        var act = () => _bankAccountModel.Withdraw(100);
+        act.Should().Throw<InvalidOperationException>()
+            .WithMessage("Not enough balance to withdraw.");
+    }
 }
