@@ -32,4 +32,12 @@ public class BankAccountKataTests
         var act = () => _bankAccountModel.Deposit(-1);
         act.Should().Throw<ArgumentException>();
     }
+    
+    [Test]
+    public void withdraw_enough_balance()
+    {
+        _bankAccountModel.Deposit(50);
+        _bankAccountModel.Withdraw(50);
+        _bankAccountModel.GetBalance().Should().Be(50);
+    }
 }
