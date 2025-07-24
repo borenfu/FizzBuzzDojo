@@ -20,7 +20,7 @@ public class BankAccountModel
         {
             throw new ArgumentException("Deposit amount must be positive.");
         }
-        
+
         Balance += amount;
     }
 
@@ -30,8 +30,12 @@ public class BankAccountModel
         {
             throw new InvalidOperationException("Not enough balance to withdraw.");
         }
-        
+
         Balance -= amount;
-        
+    }
+
+    public List<Transaction> GetTransactions()
+    {
+        throw new NotImplementedException();
     }
 }
