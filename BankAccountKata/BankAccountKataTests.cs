@@ -17,13 +17,3 @@ public class BankAccountKataTests
         bankAccountModel.balance.Should().Be(0);
     }
 }
-
-public class BankAccountModel
-{
-    public decimal balance { get; set; }
-
-    public void StartAccount()
-    {
-        balance = 0;
-    }
-}
