@@ -25,4 +25,11 @@ public class BankAccountKataTests
         _bankAccountModel.Deposit(100);
         _bankAccountModel.GetBalance().Should().Be(100);
     }
+    
+    [Test]
+    public void deposit_negative_amount_throw_argument_exception()
+    {
+        var act = () => _bankAccountModel.Deposit(-1);
+        act.Should().Throw<ArgumentException>();
+    }
 }
